@@ -11,13 +11,15 @@ export class FileUploadService {
 
   constructor(private http:HttpClient) { }
 
-  upload(file):Observable<any> {
+  upload(files):Observable<any> {
 
     // Create form data
     const formData = new FormData(); 
         
     // Store form name as "file" with file data
-    formData.append("files", file, file.name);
+    for (let f of files) {
+      formData.append("files", f, f.name);
+    }
       
     // Make http post request over api
     // with formData as req

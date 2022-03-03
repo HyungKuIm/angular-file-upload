@@ -11,7 +11,7 @@ export class FileUploadComponent implements OnInit {
   // Variable to store shortLink from api response
   shortLink: string = "";
   loading: boolean = false; // Flag variable
-  file: File = null; // Variable to store file
+  files: File[] = null; // Variable to store file
 
   users: any = [];
 
@@ -21,13 +21,13 @@ export class FileUploadComponent implements OnInit {
   }
 
   onChange(event) {
-    this.file = event.target.files[0];
+    this.files = event.target.files;
   }
 
   onUpload() {
     this.loading = !this.loading;
-        console.log(this.file);
-        this.fileUploadService.upload(this.file).subscribe(
+        console.log(this.files);
+        this.fileUploadService.upload(this.files).subscribe(
             (event: any) => {
                 console.log(event);
                 if (typeof (event) === 'object') {
