@@ -13,6 +13,8 @@ export class FileUploadComponent implements OnInit {
   loading: boolean = false; // Flag variable
   file: File = null; // Variable to store file
 
+  users: any = [];
+
   constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class FileUploadComponent implements OnInit {
                     // Short link via api response
                     //this.shortLink = event.link;
                     this.shortLink = "업로드 성공!";
-  
+                    this.users = event;
                     this.loading = false; // Flag variable 
                 }
             }

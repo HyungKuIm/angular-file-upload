@@ -12,6 +12,12 @@
 <div class="container text-center jumbotron"
     *ngIf="shortLink">
     <p>{{shortLink}}</p>
+
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.name}} ({{user.email}})
+        </li>
+    </ul>
 </div>
   
 <!--Flag variable is used here-->
